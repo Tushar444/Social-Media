@@ -1,7 +1,8 @@
 import "./register.scss";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -11,6 +12,8 @@ const Register = () => {
     name: "",
   });
 
+  const { login } = useContext(AuthContext);
+
   const [err, setErr] = useState(null);
 
   const handleChange = (e) => {
@@ -19,11 +22,16 @@ const Register = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   const handleClick = async (e) => {
     e.preventDefault();
 
     try {
       await axios.post("http://localhost:8800/api/auth/register", inputs);
+      const { username, password } = inputs;
+      login({ username, password });
+      navigate("/");
     } catch (err) {
       setErr(err.response.data);
     }
