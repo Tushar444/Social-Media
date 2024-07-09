@@ -1,0 +1,61 @@
+@import "../../style.scss";
+
+.news {
+  @include themify($themes) {
+    padding: 20px;
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid themed("border");
+      border-radius: 5px;
+      padding: 5px;
+      margin: 20px;
+      background-color: themed("bg");
+      position: sticky;
+      top: 70px;
+      z-index: 999;
+
+      input {
+        width: 100%;
+        border: none;
+        color: themed("textColor");
+        background-color: themed("bg");
+      }
+    }
+
+    .item {
+      margin: 20px;
+      .newsItem {
+        display: flex;
+
+        img {
+          width: 30%;
+          aspect-ratio: 2;
+          object-fit: cover;
+        }
+
+        .newsTitle {
+          width: 100%;
+          position: relative;
+          margin-left: 10px;
+
+          p {
+            text-decoration: underline;
+          }
+
+          img {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
