@@ -13,13 +13,10 @@ export const AuthContextProvider = ({ children }) => {
   }, [currentUser]);
 
   const login = async (inputs) => {
-    const res = await axios.post(
-      "http://localhost:8800/api/auth/login",
-      inputs,
-      {
-        withCredentials: true,
-      }
-    );
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
+    const res = await axios.post(`${backendURL}/api/auth/login`, inputs, {
+      withCredentials: true,
+    });
 
     setCurrentUser(res.data);
   };

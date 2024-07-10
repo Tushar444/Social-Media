@@ -26,9 +26,9 @@ const Register = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
     try {
-      await axios.post("http://localhost:8800/api/auth/register", inputs);
+      await axios.post(`${backendURL}/api/auth/register`, inputs);
       const { username, password } = inputs;
       login({ username, password });
       navigate("/");
