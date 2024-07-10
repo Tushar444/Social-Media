@@ -11,7 +11,9 @@ const Posts = () => {
     queryKey: ["posts"],
     queryFn: async () => {
       try {
-        const response = await makeRequest.get("/posts");
+        const response = await makeRequest.get("/posts", {
+          withCredentials: true,
+        });
         return response.data;
       } catch (err) {
         localStorage.clear();
