@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/upload/");
+    cb(null, "https://zippy-salmiakki-2654a5.netlify.app/dist/upload/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
