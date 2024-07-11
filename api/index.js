@@ -6,9 +6,9 @@ import relationshipsRoutes from "./routes/relationships.js";
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/users.js";
 import newsRoutes from "./routes/news.js";
+import uploadRoutes from "./routes/upload.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import multer from "multer";
 
 const app = express();
 
