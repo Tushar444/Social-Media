@@ -15,7 +15,6 @@ export const upload = async (req, res) => {
       public_id: Date.now() + req.file.filename,
     });
 
-    // Send back the secure_url to the client
     res.status(200).json({ url: uploadResult.secure_url });
   } catch (error) {
     console.error("Upload error:", error);
